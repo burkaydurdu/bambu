@@ -16,22 +16,22 @@ func (t *HashSuite) TestHash_IndexOf() {
 	hash.Add("name", "burkay")
 	hash.Add("surname", "durdu")
 
-	k, v := hash.indexOf(0)
+	k, v := hash.IndexOf(0)
 
 	t.Equal(k, "name")
 	t.Equal(v, "burkay")
 
-	k, v = hash.indexOf(1)
+	k, v = hash.IndexOf(1)
 
 	t.Equal(k, "surname")
 	t.Equal(v, "durdu")
 
-	k, v = hash.indexOf(-1)
+	k, v = hash.IndexOf(-1)
 
 	t.Equal(k, "")
 	t.Equal(v, "")
 
-	k, v = hash.indexOf(2)
+	k, v = hash.IndexOf(2)
 
 	t.Equal(k, "")
 	t.Equal(v, "")
@@ -42,11 +42,11 @@ func (t *HashSuite) TestHash_Get() {
 	hash.Add("name", "burkay")
 	hash.Add("surname", "durdu")
 
-	val := hash.get("surname")
+	val := hash.Get("surname")
 
 	t.Equal(val, "durdu")
 
-	val = hash.get("surnames")
+	val = hash.Get("surnames")
 
 	t.Equal(val, "")
 }
@@ -57,19 +57,19 @@ func (t *HashSuite) TestHash_GetFirstAndLast() {
 	hash.Add("surname", "durdu")
 	hash.Add("school", "KTU")
 
-	k, v := hash.first()
+	k, v := hash.First()
 
 	t.Equal(k, "name")
 	t.Equal(v, "burkay")
 
-	k, v = hash.last()
+	k, v = hash.Last()
 
 	t.Equal(k, "school")
 	t.Equal(v, "KTU")
 
-	hash.clear()
+	hash.Clear()
 
-	k, v = hash.first()
+	k, v = hash.First()
 
 	t.Equal(k, "")
 	t.Equal(v, "")
@@ -82,13 +82,13 @@ func (t *HashSuite) TestHash_GetLength() {
 	hash.Add("surname", "durdu")
 	hash.Add("school", "KTU")
 
-	length := hash.length()
+	length := hash.Length()
 
 	t.Equal(length, 3)
 
 	hash.Add("age", "27")
 
-	length = hash.length()
+	length = hash.Length()
 
 	t.Equal(length, 4)
 }
@@ -101,18 +101,18 @@ func (t *HashSuite) TestHash_Remove() {
 
 	hash.Remove("school")
 
-	t.Equal(hash.length(), 2)
-	t.Equal(hash.get("school"), "")
+	t.Equal(hash.Length(), 2)
+	t.Equal(hash.Get("school"), "")
 
 	hash.Remove("surname")
 
-	t.Equal(hash.length(), 1)
-	t.Equal(hash.get("surname"), "")
+	t.Equal(hash.Length(), 1)
+	t.Equal(hash.Get("surname"), "")
 
 	hash.Remove("name")
 
-	t.Equal(hash.length(), 0)
-	t.Equal(hash.get("name"), "")
+	t.Equal(hash.Length(), 0)
+	t.Equal(hash.Get("name"), "")
 }
 
 func TestHashSuite(t *testing.T) {

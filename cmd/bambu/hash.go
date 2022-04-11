@@ -16,7 +16,7 @@ func New[K any, V any]() *Hash[K, V] {
 	return &Hash[K, V]{}
 }
 
-func (h *Hash[K, V]) first() (key K, value V) {
+func (h *Hash[K, V]) First() (key K, value V) {
 	if h.head == nil {
 		return
 	}
@@ -27,7 +27,7 @@ func (h *Hash[K, V]) first() (key K, value V) {
 	return
 }
 
-func (h *Hash[K, V]) last() (key K, value V) {
+func (h *Hash[K, V]) Last() (key K, value V) {
 	temp := h.head
 
 	for temp.next != nil {
@@ -40,7 +40,7 @@ func (h *Hash[K, V]) last() (key K, value V) {
 	return
 }
 
-func (h *Hash[K, V]) length() int {
+func (h *Hash[K, V]) Length() int {
 	var length = 0
 
 	temp := h.head
@@ -94,7 +94,7 @@ func (h *Hash[K, V]) Remove(key K) {
 	}
 }
 
-func (h *Hash[K, V]) indexOf(index int) (key K, value V) {
+func (h *Hash[K, V]) IndexOf(index int) (key K, value V) {
 	if index < 0 {
 		return
 	}
@@ -116,7 +116,7 @@ func (h *Hash[K, V]) indexOf(index int) (key K, value V) {
 	return
 }
 
-func (h *Hash[K, V]) get(key K) (value V) {
+func (h *Hash[K, V]) Get(key K) (value V) {
 	temp := h.head
 
 	for temp != nil {
@@ -130,6 +130,6 @@ func (h *Hash[K, V]) get(key K) (value V) {
 	return
 }
 
-func (h *Hash[K, V]) clear() {
+func (h *Hash[K, V]) Clear() {
 	h.head = nil
 }
